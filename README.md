@@ -2,7 +2,7 @@
 - Showing the minimal working scalatags html server on http4s
 - Http4s wasn't necessary but it was easiest way
 
-#How to try the project
+# How to try the project
 1. Clone the project and open with your favorite IDE or Terminal
 2. Run commands in Sbt shell
     ```scala
