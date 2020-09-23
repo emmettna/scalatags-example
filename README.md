@@ -4,7 +4,12 @@
 
 # How to try the project
 1. Clone the project and open with your favorite IDE or Terminal
-2. Run commands in Sbt shell
+    ```shell script
+   # Navigate to a temporary directory such as "~/temp"
+   
+   $ git clone https://github.com/emmettna/scalatags-example.git
+   ```
+2. Run commands in sbt shell
     ```scala
     > reStart
     ```
