@@ -1,11 +1,11 @@
 package com.example.scalatags
 
 import cats.effect.Sync
+import com.example.scalatags.page.{About, Index}
 import org.http4s.HttpRoutes
 import org.http4s.dsl.Http4sDsl
 import org.http4s.scalatags._
-import scalatags.Text.all._
-import scalatags.Text.tags2.{title => mainTitle}
+
 
 object ScalatagsRoutes {
 
@@ -14,8 +14,10 @@ object ScalatagsRoutes {
     import dsl._
     HttpRoutes.of[F] {
       case GET -> Root =>
-        val helloWorldInScalaTags = html(mainTitle("ScalaTags Playground"),body(p("Hello World!")))
-        Ok(helloWorldInScalaTags)
+        Ok(Index.main)
+
+      case GET -> Root / "about" =>
+        Ok(About.main)
     }
   }
 }
