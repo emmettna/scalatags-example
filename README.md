@@ -23,4 +23,10 @@
     root              |_| 
     ```
     - It's written Http4s believe it or not
-4. Access to http://localhost:8080/ then you will see the "Hello World" 
+4. Access to http://localhost:8080/ then you will see the "Hello World"
+
+Enhanced
+---
+5. visit about page http://localhost:8080/about
+- a little more realistic static webpage available
+ 
