@@ -4,14 +4,19 @@ import scalatags.Text.all._
 import scalatags.Text.tags2.section
 import scalatags.Text.tags2.{title => mainTitle}
 
+final case class LabelTagPair(label: String, tag: String)
+
 object About {
+  val labelTags = List(LabelTagPair("label-success", "Coding"), LabelTagPair("label-warning", "Scala"), LabelTagPair("label-primary", "Scalatags"),
+    LabelTagPair("label-danger", "Cats"), LabelTagPair("label-info", "Javascript"))
+
   def main = html(
     head(
       mainTitle("About | Tutorial page"),
-      link(rel:="stylesheet", href:="https://stackpath.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"),
-      link(rel:="stylesheet", href:="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"),
-      link(rel:="stylesheet", href:="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"),
-      link(rel:="stylesheet", href:="https://adminlte.io/themes/AdminLTE/dist/css/AdminLTE.min.css"),
+      link(rel := "stylesheet", href := "https://stackpath.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"),
+      link(rel := "stylesheet", href := "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"),
+      link(rel := "stylesheet", href := "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"),
+      link(rel := "stylesheet", href := "https://adminlte.io/themes/AdminLTE/dist/css/AdminLTE.min.css"),
     ),
     body(
       section(cls := "content",
@@ -31,27 +36,23 @@ object About {
                 a(href := "https://github.com/emmettna/scalatags-example", cls := "btn btn-primary btn-block", b("Visit Github Page"))
               )
             ),
-            div(cls:= "box box-primary",
-              div(cls:="box-header with-border",
-              h3(cls:="box-title", "More About"))
+            div(cls := "box box-primary",
+              div(cls := "box-header with-border",
+                h3(cls := "box-title", "More About"))
             ),
-            div(cls:= "box-body",
-              strong(i(cls:="fa fa-book margin-r-5"), "Education"),
-              p(cls:="text-muted", "the best Kindergarten ever in the world."),
+            div(cls := "box-body",
+              strong(i(cls := "fa fa-book margin-r-5"), "Education"),
+              p(cls := "text-muted", "the best Kindergarten ever in the world."),
               hr,
-              strong(i(cls:="fa fa-map-marker margin-r-5"), "Location"),
-              p(cls:="text-muted", "Somewhere, Seoul"),
+              strong(i(cls := "fa fa-map-marker margin-r-5"), "Location"),
+              p(cls := "text-muted", "Somewhere, Seoul"),
               hr,
-              strong(i(cls:="fas fa-pencil-alt margin-r-5"), "Skills"),
-              p(style:="margin:3px",
-                span(cls:="label label-success margin-r-3", "Coding"),
-                span(cls:="label label-warning margin-r-3", "Scala"),
-                span(cls:="label label-primary margin-r-3", "Scalatags"),
-                span(cls:="label label-danger margin-r-3", "Cats"),
-                span(cls:="label label-info", "Javascript"),
+              strong(i(cls := "fas fa-pencil-alt margin-r-5"), "Skills"),
+              p(style := "margin:3px",
+                labelTags.map { pair => span(cls := s"label ${pair.label} margin-r-3", pair.tag) }
               ),
               hr,
-              strong(i(cls:="far fa-file-alt margin-r-5"), "Notes"),
+              strong(i(cls := "far fa-file-alt margin-r-5"), "Notes"),
               p("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.")
             )
           ),
